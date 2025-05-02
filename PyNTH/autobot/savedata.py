@@ -12,6 +12,29 @@ def save_movies(data, filename="movies.json"):
         json.dump(data, file, ensure_ascii=False, indent=4)
     print(f"Dữ liệu đã được lưu vào file {filename}")
 
+def save_movies_first(data, filename="moviesFirst.json"):
+    """
+    Lưu dữ liệu vào file JSON.
+
+    :param data: Dữ liệu cần lưu (kiểu dictionary hoặc list).
+    :param filename: Tên file JSON (mặc định là 'moviesFirst.json').
+    """
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+    print(f"Dữ liệu đã được lưu vào file {filename}")
+
+# Luu phim le vao database
+def save_to_db(data, filename="moviesFirstDB.json"):
+    """
+    Lưu dữ liệu vào database.
+
+    :param data: Dữ liệu cần lưu (kiểu dictionary hoặc list).
+    :param db: Database cần lưu dữ liệu.
+    """
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+    print(f"Dữ liệu đã được lưu vào file {filename}")
+
 def save_to_csv(data, filename="movies.csv"):
     """
     Lưu dữ liệu vào file CSV.

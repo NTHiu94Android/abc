@@ -3,8 +3,12 @@ from playwright.sync_api import sync_playwright
 class AutobotScraper2:
     def scrape2(url):
         with sync_playwright() as p:
-            # Khởi chạy trình duyệt Chromium
-            browser = p.chromium.launch(headless=False)  # headless=False để hiển thị trình duyệt
+            # # Khởi chạy trình duyệt Chromium
+            # browser = p.chromium.launch(headless=False)  # headless=False để hiển thị trình duyệt
+            # page = browser.new_page()
+            # found_link = None
+            # Khoi chay trinh duyet khac ngoai trinh duyet chromium
+            browser = p.firefox.launch(headless=False)  # headless=False để hiển thị trình duyệt
             page = browser.new_page()
             found_link = None
 
@@ -21,12 +25,12 @@ class AutobotScraper2:
 
             # Tự động click vào nút Play (nếu có)
             try:
-                page.click('.jw-icon.jw-icon-display', timeout=3000)
+                page.click('.jw-icon.jw-icon-display', timeout=5000)
             except Exception as e:
                 print("Không tìm thấy nút Play:", e)
 
             # Đợi 5 giây để bắt request
-            page.wait_for_timeout(5000)
+            page.wait_for_timeout(8000)
 
             # Đóng trình duyệt
             browser.close()
