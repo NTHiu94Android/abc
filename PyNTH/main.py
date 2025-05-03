@@ -13,9 +13,9 @@ def main():
     # print(f"Tìm thấy {len(movies)} phim.")
 
     # -----------------------------------------------------------------------------------------
-    moviesFirst = AutobotScraper0(base_url="https://motphim.se/danh-sach/phim-le").scrape01(21,25)
-    save_movies_first(moviesFirst, "moviesFirst.json")
-    print(f"Tìm thấy {len(moviesFirst)} phim.")
+    # moviesFirst = AutobotScraper0(base_url="https://motphim.se/danh-sach/phim-le").scrape01(21,25)
+    # save_movies_first(moviesFirst, "moviesFirst.json")
+    # print(f"Tìm thấy {len(moviesFirst)} phim.")
 
     # -----------------------------------------------------------------------------------------
     # episodes = AutobotScraper1(base_url="https://motphim.se/phim/tu-cam/tap-1").scrape1()
@@ -47,6 +47,15 @@ def main():
     # save_to_db(episodes);
     # ------------------------------------------------------
 
+    moviesFirstDB = [];
+    with open('moviesFirstDB.json', 'r', encoding='utf-8') as file:
+        moviesFirstDB = json.load(file)
+    # Them truong type_mv_code = "MV04002" vao moviesFirstDB
+    for movie in moviesFirstDB:
+        movie["type_mv_code"] = "MV04002"
+        movie["release_code"] = "MV06001"
+        movie["pay_code"] = "MV05002"
+    save_to_db(moviesFirstDB);
 
 
     # ------------------------------------------------------
