@@ -65,3 +65,14 @@ def save_espisodes(data, filename="episode.json"):
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
     print(f"Dữ liệu đã được lưu vào file {filename}")
+
+def save_matchs(data, filename="matchs.json"):
+    """
+    Lưu dữ liệu vào file JSON.
+
+    :param data: Dữ liệu cần lưu (kiểu dictionary hoặc list).
+    :param filename: Tên file JSON (mặc định là 'matchs.json').
+    """
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+    print(f"Dữ liệu đã được lưu vào file {filename}")
